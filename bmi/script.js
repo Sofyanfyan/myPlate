@@ -19,7 +19,7 @@
             display.innerHTML = "YOUR RESULT";
             result.innerHTML = bmi;
             result.style.fontSize = "3rem";
-           
+          
             if (bmi <= 18.4) {
                 container.style.backgroundColor = "#7ea1dc";
                 container.style.color = "var(--light)";
