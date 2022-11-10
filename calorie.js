@@ -152,18 +152,23 @@ function foodList(){
         const cellText = document.createTextNode(`${food[i].nama}`);
         const gram = document.createTextNode(`${food[i].gram}`);
         const calorie = document.createTextNode(`${food[i].calorie}`)
+
         const infoButton = document.createElement('button')
         infoButton.innerHTML = 'add'
         infoButton.classList.add('add-btn')
+
         const deleteButton = document.createElement('button')
         deleteButton.innerHTML = 'add'
+
         cell.appendChild(cellText);
         cell2.appendChild(gram);
         cell3.appendChild(calorie);
+
         row.appendChild(cell);
         row.appendChild(cell2);
         row.appendChild(cell3);
         row.appendChild(infoButton);
+        
         menuMakanan.appendChild(row);
         infoButton.addEventListener("click", function(){ 
         
@@ -187,6 +192,10 @@ function deleteRow(index){
         el.removeChild(children[index]);
     }
     foodList()
+}
+
+function kaloriHarian(){
+    let table
 }
 
 // function deleteWord(){
