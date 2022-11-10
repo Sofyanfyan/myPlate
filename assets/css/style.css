@@ -914,3 +914,25 @@ button#penting {
 button#penting:hover {
    cursor: pointer;
 }
+
+
+.menu-box {
+  width: 60%;
+  background-color: white;
+  margin-top: 20px;
+  /* padding: 15px; */
+  border-radius: 10px;
+}
+
+.menu-list {
+  min-width: 40%;
+  list-style: none;
+  /* padding-bottom: 2rem; */
+  transition: all 0.5s ease;
+}
+
+.menu-container {
+  display: inline-block;
+  width: 400px;
+  border: 1px solid black;
+}

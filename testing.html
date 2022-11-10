@@ -1,0 +1,167 @@
+<!-- <!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <title>Calories Counter</title>
+      </head>
+      <body>
+        <div class="calorie-container">
+            <h1>Calorie Tracker</h1>
+        </div>
+        <div>
+            <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Food Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Calorie</th>
+                    <th scope="col">Add to Menu</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Nasi</td>
+                    <td>100gr</td>
+                    <td>175</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Nasi Goreng</td>
+                    <td>100gr</td>
+                    <td>267</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Siomay</td>
+                    <td>100gr</td>
+                    <td>361</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Roti Tawar</td>
+                    <td>50gr</td>
+                    <td>128</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Mie Instant</td>
+                    <td>1bungkus</td>
+                    <td>168</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Pepaya</td>
+                    <td>100gr</td>
+                    <td>46</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>Apel</td>
+                    <td>160gr</td>
+                    <td>92</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>Alpukat</td>
+                    <td>100gr</td>
+                    <td>85</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>Sayur Lodeh</td>
+                    <td>100gr</td>
+                    <td>100</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10</th>
+                    <td>Sayur Asam</td>
+                    <td>100gr</td>
+                    <td>88</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">11</th>
+                    <td>Sop Bayam</td>
+                    <td>50gr</td>
+                    <td>78</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">12</th>
+                    <td>Tahu Goreng</td>
+                    <td>100gr</td>
+                    <td>111</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">12</th>
+                    <td>Tempe Goreng</td>
+                    <td>100gr</td>
+                    <td>200</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">12</th>
+                    <td>Telur Goreng</td>
+                    <td>1 butir</td>
+                    <td>92</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+      </body>
+</html> -->
+
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <title>Calories Counter</title>
+    </head>
+    <body>
+    <div class="menu-container">
+        <div class="menu-box">
+            <h2>Food List</h2>
+            <div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <td>Nama Makanan</td>
+                        <td>gram</td>
+                        <td>Calorie</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody id="calorie-harian">
+                </tbody>
+            </table>
+            </div>
+            <div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <td>Nama Makanan</td>
+                        <td>gram</td>
+                        <td>Calorie</td>
+                        <td>action</td>
+                    </tr>
+                </thead>
+                <tbody id="menu-makanan">
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+        <script src="calorie.js"></script>
+    </body>
+</html>
