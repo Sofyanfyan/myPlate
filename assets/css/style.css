@@ -914,3 +914,14 @@ button#penting {
 button#penting:hover {
    cursor: pointer;
 }
+
+h2#question {
+
+   font-size: 28px;
+}
+
+button#choose {
+
+   display:"flex-box";
+   flex-flow: column;
+}
