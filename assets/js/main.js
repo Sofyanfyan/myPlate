@@ -178,14 +178,14 @@
 //     selector: '.glightbox'
 //   });
 
-  /**
+/**
    * Initiate Gallery Lightbox 
    */
 //   const galelryLightbox = GLightbox({
 //     selector: '.galelry-lightbox'
 //   });
 
-  /**
+/**
    * Testimonials slider
    */
 //   new Swiper('.testimonials-slider', {
@@ -214,19 +214,51 @@
 //     }
 //   });
 
-  /**
+/**
    * Initiate Pure Counter 
    */
 //   new PureCounter();
 
 })()
 
-let form = document.getElementById('tracker');
+
 let formButton = document.getElementById("penting");
+let form = document.getElementById('soal1');
+let form1 = document.getElementById('soal2');
+let form2 = document.getElementById('soal3');
+let form3 = document.getElementById('soal4');
+let next = document.getElementById('lanjutkan1');
+let next1 = document.getElementById('lanjutkan2');
+let next2 = document.getElementById('lanjutkan3');
 form.style.display = "none";
+form1.style.display = "none";
+form2.style.display = "none";
+form3.style.display = "none";
 
-formButton.addEventListener("click", function() {
 
+formButton.addEventListener("click", function(event) {
+   event.preventDefault()
    document.getElementById("homepageMyplate").style.display = "none";
-   form.style.display = "";
- });
+   form.style.display = 'block';
+});
+
+next.addEventListener("click", function(event) {
+
+   event.preventDefault()
+   form.style.display = "none";
+   form1.style.display = 'block';
+});
+
+
+next1.addEventListener("click", function(event) {
+
+   event.preventDefault()
+   form1.style.display = "none";
+   form2.style.display = 'block';
+});
+
+next2.addEventListener("click", function(event) {
+   event.preventDefault()
+   form2.style.display = "none";
+   form3.style.display = 'block';
+});
