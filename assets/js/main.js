@@ -223,6 +223,8 @@
 
 
 let formButton = document.getElementById("penting");
+let bmiCalculator = document.getElementById("bmi-calcu") //nambah bmicalculator
+let formBMI = document.getElementById("form-bmi") //id di html untuk nambahin
 let form = document.getElementById('soal1');
 let form1 = document.getElementById('soal2');
 let form2 = document.getElementById('soal3');
@@ -239,6 +241,14 @@ form2.style.display = "none";
 form3.style.display = "none";
 table_kalori.style.display = "none";
 table_makanan.style.display = "none";
+formBMI.style.display = 'none';
+
+bmiCalculator.addEventListener("click", function (event) {
+   event.preventDefault()
+   document.getElementById("homepageMyplate").style.display = "none";
+   formBMI.style.display = 'block';
+
+});
 
 formButton.addEventListener("click", function (event) {
    event.preventDefault()
@@ -294,7 +304,7 @@ next3.addEventListener("click", function (event) {
    table_kalori.style.display = "block";
    table_makanan.style.display = "block";
 
-   console.log(hitungKalori(quiz));
+   document.getElementById('kalori-form').innerHTML = hitungKalori(quiz)
 });
 
 
@@ -349,11 +359,206 @@ let quiz = {
    weight: ''
 }
 
-// let quiz = {
-//    bb: 75,
-//    gender: "Pria",
-//    kegiatan: "moderately active",
-//    tinggi: 175,
-//    umur: 22,
-//    weight: "lose weight",
-// }
+
+function foodList(){
+  let food = [
+    {
+        nama: 'nasi',
+        calorie: 175,
+        gram: 100
+    },
+    {
+        nama: 'nasi goreng',
+        calorie: 267,
+        gram: 100
+    },
+    {
+        nama: 'sate ayam',
+        calorie: 466,
+        gram: 100
+    },
+    {
+        nama: 'siomay',
+        calorie: 361,
+        gram: 100
+    },
+    {
+        nama: 'telur goreng',
+        calorie: 92,
+        gram: 100
+    },
+    {
+        nama: 'roti tawar',
+        calorie: 128,
+        gram: 50
+    },
+    {
+        nama: 'mie instant',
+        calorie: 168,
+        gram: 50
+    },
+    {
+        nama: 'ayam panggang',
+        calorie: 164.3,
+        gram: 100
+    },
+    {
+        nama: 'pepaya',
+        calorie: 46,
+        gram: 100
+    },
+    {
+        nama: 'apel',
+        calorie: 92,
+        gram: 160
+    },
+    {
+        nama: 'alpukat',
+        calorie: 85,
+        gram: 100
+    },
+    {
+        nama: 'tempe goreng',
+        calorie: 200,
+        gram: 100
+    },
+    {
+        nama: 'pisang ambon',
+        calorie: 74.2,
+        gram: 100
+    },
+    {
+        nama: 'anggur',
+        calorie: 60,
+        gram: 125
+    },
+    {
+        nama: 'sayur lodeh',
+        calorie: 61,
+        gram: 100
+    },
+    {
+        nama: 'sayur asam',
+        calorie: 88,
+        gram: 100
+    },
+    {
+        nama: 'sop bayam',
+        calorie: 78,
+        gram: 50
+    },
+    {
+        nama: 'tahu goreng',
+        calorie: 111,
+        gram: 100
+    },
+ ]
+
+    const tbl = document.createElement("table");
+    const tblBody = document.createElement("tbody");
+    let counter = 0
+    let hasil = 0
+    // creating all cells
+    for (let i = 0; i < food.length; i++) {
+        
+        const row = document.createElement("tr");
+        const cell = document.createElement("td");
+        const cell2 = document.createElement("td");
+        const cell3 = document.createElement("td");
+        const cell4 = document.createElement("td");
+        const menuMakanan = document.getElementById('menu-makanan')
+        const cellText = document.createTextNode(`${food[i].nama}`);
+        const gram = document.createTextNode(`${food[i].gram}`);
+        const calorie = document.createTextNode(`${food[i].calorie}`)
+
+        const infoButton = document.createElement('button')
+        infoButton.innerHTML = 'add'
+        infoButton.classList.add('add-btn')
+
+        const deleteButton = document.createElement('button')
+        deleteButton.innerHTML = 'add'
+
+        cell.appendChild(cellText);
+        cell2.appendChild(gram);
+        cell3.appendChild(calorie);
+
+        row.appendChild(cell);
+        row.appendChild(cell2);
+        row.appendChild(cell3);
+        row.appendChild(infoButton);
+
+        menuMakanan.appendChild(row);
+        infoButton.addEventListener("click", function(){ 
+        document.getElementById('calorie-harian').innerHTML += `<tr><td>${food[i].nama}</td><td>${food[i].gram}</td><td>${food[i].calorie}</td><td><button onclick="deleteRow(${counter})">Delete</button></td></tr>`; 
+        counter++
+        document.getElementById('kalori-form').innerHTML = hitungKalori(quiz) - food[i].calorie
+        }); 
+    }
+
+}
+foodList()
+
+function deleteRow(index){
+    let el = document.getElementById('calorie-harian')
+    var children = el.children;
+    if(children.length > 0) {
+        el.removeChild(children[index]);
+    }
+    foodList()
+}
+
+
+      let container = document.getElementById("container");
+        let gender = document.getElementById("gender");
+        let age = document.getElementById("age").value;
+        let height = document.getElementById("height");
+        let weight = document.getElementById("weight");
+        let result = document.getElementById("result");
+        let display = document.getElementById("display");
+        let comment = document.getElementById("comment");
+        let submit = document.getElementById("submit");
+        let input = document.getElementsByTagName("input");
+        let bmi;
+
+        function calculateBMI() {
+            bmi = weight.value / ((height.value * height.value)/10000);
+            bmi = bmi.toFixed(1);
+        }
+
+        function changeVisuals() {
+            display.innerHTML = "YOUR RESULT";
+            result.innerHTML = bmi;
+            result.style.fontSize = "3rem";
+
+            if (bmi <= 18.4) {
+                formBMI.style.backgroundColor = "#7ea1dc";
+                formBMI.style.color = "var(--light)";
+                submit.style.backgroundColor = "#cf552d";
+                comment.innerHTML = "Underweight";
+            } else if (bmi > 18.4 && bmi < 24.9) {
+                formBMI.style.backgroundColor = "#92ea8f";
+                formBMI.style.color = "var(--dark)";
+                submit.style.backgroundColor = "#bf6b6b";
+                comment.innerHTML = "Normal";
+            } else if (bmi >= 25 && bmi < 29.9) {
+                formBMI.style.backgroundColor = "#ffd47b";
+                formBMI.style.color = "var(--dark)";
+                submit.style.backgroundColor = "#bf6b6b";
+                comment.innerHTML = "Overweight";
+            } else {
+                formBMI.style.backgroundColor = "#ff5f5f";
+                formBMI.style.color = "var(--light)";
+                submit.style.backgroundColor = "#c233e6";
+                comment.innerHTML = "Obsesity";
+            }
+
+        }
+
+
+        submit.addEventListener('click', () => {
+            calculateBMI();
+            changeVisuals();
+            if (weight.value === 0 || height.value === 0) {
+                comment.innerHTML = 'Enter some value';
+            } 
+        }); 
