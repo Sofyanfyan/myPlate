@@ -1,9 +1,4 @@
-/**
- * Template Name: Medilab - v4.9.1
- * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
- * Author: BootstrapMade.com
- * License: https://bootstrapmade.com/license/
- */
+
 (function () {
    "use strict";
 
@@ -132,27 +127,7 @@
       }
    }, true)
 
-   /**
-    * Scrool with ofset on links with a class name .scrollto
-    */
-   // on('click', '.scrollto', function (e) {
-   //    if (select(this.hash)) {
-   //       e.preventDefault()
 
-   //       let navbar = select('#navbar')
-   //       if (navbar.classList.contains('navbar-mobile')) {
-   //          navbar.classList.remove('navbar-mobile')
-   //          let navbarToggle = select('.mobile-nav-toggle')
-   //          navbarToggle.classList.toggle('bi-list')
-   //          navbarToggle.classList.toggle('bi-x')
-   //       }
-   //       scrollto(this.hash)
-   //    }
-   // }, true)
-
-   /**
-    * Scroll with ofset on page load with hash links in the url
-    */
    window.addEventListener('load', () => {
       if (window.location.hash) {
          if (select(window.location.hash)) {
@@ -171,60 +146,10 @@
       });
    }
 
-   /**
-    * Initiate glightbox 
-    */
-   //   const glightbox = GLightbox({
-   //     selector: '.glightbox'
-   //   });
-
-   /**
-    * Initiate Gallery Lightbox 
-    */
-   //   const galelryLightbox = GLightbox({
-   //     selector: '.galelry-lightbox'
-   //   });
-
-   /**
-    * Testimonials slider
-    */
-   //   new Swiper('.testimonials-slider', {
-   //     speed: 600,
-   //     loop: true,
-   //     autoplay: {
-   //       delay: 5000,
-   //       disableOnInteraction: false
-   //     },
-   //     slidesPerView: 'auto',
-   //     pagination: {
-   //       el: '.swiper-pagination',
-   //       type: 'bullets',
-   //       clickable: true
-   //     },
-   //     breakpoints: {
-   //       320: {
-   //         slidesPerView: 1,
-   //         spaceBetween: 20
-   //       },
-
-   //       1200: {
-   //         slidesPerView: 2,
-   //         spaceBetween: 20
-   //       }
-   //     }
-   //   });
-
-   /**
-    * Initiate Pure Counter 
-    */
-   //   new PureCounter();
-
 })()
 
 
 let formButton = document.getElementById("penting");
-let bmiCalculator = document.getElementById("bmi-calcu") //nambah bmicalculator
-let formBMI = document.getElementById("form-bmi") //id di html untuk nambahin
 let form = document.getElementById('soal1');
 let form1 = document.getElementById('soal2');
 let form2 = document.getElementById('soal3');
@@ -241,14 +166,8 @@ form2.style.display = "none";
 form3.style.display = "none";
 table_kalori.style.display = "none";
 table_makanan.style.display = "none";
-formBMI.style.display = 'none';
 
-bmiCalculator.addEventListener("click", function (event) {
-   event.preventDefault()
-   document.getElementById("homepageMyplate").style.display = "none";
-   formBMI.style.display = 'block';
 
-});
 
 formButton.addEventListener("click", function (event) {
    event.preventDefault()
@@ -304,7 +223,7 @@ next3.addEventListener("click", function (event) {
    table_kalori.style.display = "block";
    table_makanan.style.display = "block";
 
-   document.getElementById('kalori-form').innerHTML = hitungKalori(quiz)
+   document.getElementById('kalori-form').innerHTML = Math.round(hitungKalori(quiz))
 });
 
 
@@ -491,7 +410,7 @@ function foodList(){
         infoButton.addEventListener("click", function(){ 
         document.getElementById('calorie-harian').innerHTML += `<tr><td>${food[i].nama}</td><td>${food[i].gram}</td><td>${food[i].calorie}</td><td><button onclick="deleteRow(${counter})">Delete</button></td></tr>`; 
         counter++
-        document.getElementById('kalori-form').innerHTML = hitungKalori(quiz) - food[i].calorie
+        document.getElementById('kalori-form').innerHTML = Math.round(hitungKalori(quiz) - food[i].calorie)
         }); 
     }
 
@@ -506,59 +425,3 @@ function deleteRow(index){
     }
     foodList()
 }
-
-
-      let container = document.getElementById("container");
-        let gender = document.getElementById("gender");
-        let age = document.getElementById("age").value;
-        let height = document.getElementById("height");
-        let weight = document.getElementById("weight");
-        let result = document.getElementById("result");
-        let display = document.getElementById("display");
-        let comment = document.getElementById("comment");
-        let submit = document.getElementById("submit");
-        let input = document.getElementsByTagName("input");
-        let bmi;
-
-        function calculateBMI() {
-            bmi = weight.value / ((height.value * height.value)/10000);
-            bmi = bmi.toFixed(1);
-        }
-
-        function changeVisuals() {
-            display.innerHTML = "YOUR RESULT";
-            result.innerHTML = bmi;
-            result.style.fontSize = "3rem";
-
-            if (bmi <= 18.4) {
-                formBMI.style.backgroundColor = "#7ea1dc";
-                formBMI.style.color = "var(--light)";
-                submit.style.backgroundColor = "#cf552d";
-                comment.innerHTML = "Underweight";
-            } else if (bmi > 18.4 && bmi < 24.9) {
-                formBMI.style.backgroundColor = "#92ea8f";
-                formBMI.style.color = "var(--dark)";
-                submit.style.backgroundColor = "#bf6b6b";
-                comment.innerHTML = "Normal";
-            } else if (bmi >= 25 && bmi < 29.9) {
-                formBMI.style.backgroundColor = "#ffd47b";
-                formBMI.style.color = "var(--dark)";
-                submit.style.backgroundColor = "#bf6b6b";
-                comment.innerHTML = "Overweight";
-            } else {
-                formBMI.style.backgroundColor = "#ff5f5f";
-                formBMI.style.color = "var(--light)";
-                submit.style.backgroundColor = "#c233e6";
-                comment.innerHTML = "Obsesity";
-            }
-
-        }
-
-
-        submit.addEventListener('click', () => {
-            calculateBMI();
-            changeVisuals();
-            if (weight.value === 0 || height.value === 0) {
-                comment.innerHTML = 'Enter some value';
-            } 
-        }); 
